@@ -31,6 +31,6 @@ config {
 
 select daily.*
   , case when service_description != 'Invoice' then
-  (total_cost+total_credits-total_promotion)
+  (total_cost+total_fcud_legacy-total_promotion)
   else 0 end as total_net_cost 
 from ${ref(dataform.projectConfig.vars.daily_summary_table_name)} daily
